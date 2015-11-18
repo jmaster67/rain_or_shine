@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151118011226) do
+ActiveRecord::Schema.define(version: 20151118015817) do
 
   create_table "homes", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20151118011226) do
     t.string   "state"
     t.string   "city"
     t.string   "phone_number"
+    t.boolean  "alert"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
