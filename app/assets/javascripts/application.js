@@ -15,6 +15,10 @@
 //= require turbolinks
 //= require_tree .
 
+
+
+
+
 $(document).ready(function(){
 	$(".rain, .pulse, .sun").show();
 	$("#locationText").hide();
@@ -23,7 +27,7 @@ $(document).ready(function(){
 	$("#login-button").hide();
 
 	// number of drops created.
-	var numberDrops = 200; 
+	var numberDrops = 200;
 
 	// function to generate a random number range.
 	function randRange( minNum, maxNum) {

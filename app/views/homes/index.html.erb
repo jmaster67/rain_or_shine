@@ -19,11 +19,14 @@
       <div class="ray ray10"></div>
   </div>
 </div>
-
 <head>
         <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
         <title>Weather</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js">></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="http://getbootstrap.com/examples/sticky-footer/sticky-footer.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
     </head>
     <body>
         <table id="GeoResults"></table>
@@ -35,5 +38,28 @@
             });
             $("#GeoResults").html(table_body);
         });
+
         </script>
-    </body>
+ 
+    <div class="container">
+    <div class="page-header">
+      <h1>Conditions in {{.Name}}</h1>
+    </div>
+    <p class="lead">{{range .Weather}}<img src="static/img/{{.Icon}}.png" alt="weather icon"> {{.Description}} {{end}}</p>
+    <table class="table table-hover table-condensed" data-toggle="table" data-cache="false">
+      <thread>
+      <tr>
+        <th>Now</th>
+        <th>High</th>
+        <th>Low</th>
+      </tr>
+      </thread>
+      <tr><td>{{.Main.Temp}} {{.Unit}}</td><td>{{.Main.TempMax}} {{.Unit}}</td><td>{{.Main.TempMin}} {{.Unit}}</td></tr>
+    </table>
+    </div>
+    <footer class="footer">
+          <div class="container">
+          </div>
+      </footer>
+  </body>
+   
