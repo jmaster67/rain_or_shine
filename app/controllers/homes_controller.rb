@@ -4,10 +4,10 @@ class HomesController < ApplicationController
   # GET /homes
   # GET /homes.json
   def index
-    @sm = "Santa+Monica,CA"
-    @address = "1617+Broadway"
-    @zip = "90404"
-    @weather_url = "http://api.openweathermap.org/data/2.5/weather?q=#{@sm}"
+    @city = "Miami, NY"
+    # "http://ip-api.com/json/?fields=country,countryCode,region,regionName,city,zip"
+    # return city and region from api above and store it in hash and use in weather api
+    @weather_url = "http://api.openweathermap.org/data/2.5/weather?q=#{@city}&APPID=6f188d89b8bd85b5e4911df9b542941c"
     @weather = HTTParty.get(@weather_url)
   end
     
