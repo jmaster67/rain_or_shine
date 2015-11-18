@@ -4,8 +4,14 @@ class HomesController < ApplicationController
   # GET /homes
   # GET /homes.json
   def index
-    
+    @sm = "Santa+Monica,CA"
+    @address = "1617+Broadway"
+    @zip = "90404"
+    @weather_url = "http://api.openweathermap.org/data/2.5/weather?q=#{@sm}"
+    @weather = HTTParty.get(@weather_url)
   end
+    
+ 
 
   # GET /homes/1
   # GET /homes/1.json
