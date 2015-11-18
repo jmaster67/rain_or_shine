@@ -19,3 +19,21 @@
       <div class="ray ray10"></div>
   </div>
 </div>
+
+<head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+        <title>Weather</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js">></script>
+    </head>
+    <body>
+        <table id="GeoResults"></table>
+        <script>
+        $.getJSON("http://ip-api.com/json/?fields=country,countryCode,region,regionName,city,zip", function(data) {
+            var table_body = "";
+            $.each(data, function(k, v) {
+                table_body += "<tr><td>" + k + "</td><td><b>" + v + "</b></td></tr>";
+            });
+            $("#GeoResults").html(table_body);
+        });
+        </script>
+    </body>
