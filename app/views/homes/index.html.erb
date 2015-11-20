@@ -32,7 +32,7 @@
         <table id="GeoResults"></table>
         
         <script>
-        $.getJSON("http://ip-api.com/json/?fields=country,countryCode,region,regionName,city,zip", function(data) {
+        $.getJSON("http://ip-api.com/json/?fields=lat,lon", function(data) {
             var table_body = "";
             $.each(data, function(k, v) {
                 table_body += "<tr><td>" + k + "</td><td><b>" + v + "</b></td></tr>";
@@ -42,10 +42,51 @@
 
 
         </script>
+
+        <!--<div id="GeoAPI"></div>
+02
+<script language="Javascript">
+
+if (navigator.geolocation) {
+
+  navigator.geolocation.getCurrentPosition(function(position) {
+
+  doStuff(position.coords.latitude, position.coords.longitude);
+
+  });
+
+}
+
+else {
+
+  if (document.getElementById("GeoAPI")) {
+
+    document.getElementById("GeoAPI").innerHTML = "I'm sorry but geolocation services are not supported by your browser";
+
+    document.getElementById("GeoAPI").style.color = "#FF0000";
+
+  }
+
+}
+
+ 
+
+function doStuff(mylat, mylong) {
+
+  if (document.getElementById("GeoAPI")) {
+
+    document.getElementById("GeoAPI").innerHTML = "<iframe style=\"width: 400px; height: 400px\" frameborder=\"0\" scrolling=\"no\" marginheight=\"0\" marginwidth=\"0\" src=\"http://maps.google.com/?ll=" + mylat + "," + mylong + "&z=16&output=embed\"></iframe>";
+
+  }
+
+}
+
+</script>-->
+
  
     <div class="container">
     <div class="page-header">
-      <h1> <%= @weather["weather"][0]["description"] %> at the moment.</h1>
+      <h1> <%= @weather %> at the moment.</h1>
     </div>
     <p class="lead">{{range .Weather}}<img src="static/img/{{.Icon}}.png" alt="weather icon"> {{.Description}} {{end}}</p>
     <table class="table table-hover table-condensed" data-toggle="table" data-cache="false">
